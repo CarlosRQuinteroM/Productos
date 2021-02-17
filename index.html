@@ -4,9 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
     <title>Productos</title>
 </head>
 <body>
-    
+    <!-- Barra de navegacion -->
+    <nav class="navbar navbar-ligth bg-ligth">
+        <a href="/" class="navbar-brand">
+        Productos
+        </a>
+    </nav>
+
+    <div class="container">
+        <!-- Aplicacion -->
+        <div id="App" class="row pt-5">
+              <div class="col-md-4">
+                  <div class="card">
+                      <div class="card-header">
+                          <h4> Agrega un Producto</h4>
+                      </div>
+                      <form id="productos-form" class="card-body">
+                          <div class="form-group"> 
+                              <input type="text" id="name" placeholder="Nombre del producto" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                              <input type="number" step="0.01" id="price" placeholder=" Precio del Producto" class="form-control">
+                          </div>
+                          <div class="form-group">
+                               <input type="number" id="year" min="2000" value="2020" class="form-control" placeholder="Año del producto" >
+                          </div>
+                          <input type="submit" value="Imprimir"  class="btn btn-primary btn-block">
+
+                      </form>
+
+                  </div>
+              </div>
+              <div class="col-md-8">
+                  <div id="Product-list" class="col-md-8"></div>
+
+              </div>
+        </div>
+    </div>
+
+
+
+    <script src="./main.js"></script>
 </body>
 </html>

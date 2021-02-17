@@ -31,7 +31,10 @@ class UI {
        document.getElementById("productos-form").reset();
     }
 
-    deleteProduct(){
+    deleteProduct(element){
+        if(element.name === 'borrar'){
+            element.parentElement.parentElement.parentElement.remove()
+        }
 
     }
 
@@ -58,6 +61,10 @@ document.getElementById('productos-form')
     e.preventDefault();
 });
 
-document.getElementById('Product-list').addEventListener('click' , function()){
-    arlert('capturado')
-}
+document.getElementById('Product-list').addEventListener( 'click' , function(e){
+    const ui = new UI();
+    ui.deleteProduct(e.target)
+
+} )  
+
+

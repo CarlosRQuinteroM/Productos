@@ -65,8 +65,8 @@ document.getElementById('productos-form')
     const producto = new Producto(name, price , year);
 
      const ui = new UI();
-     if(name === '' || price === '' || yerar === ''){
-         ui.showMassage('Los campos no estan completos')
+     if(name === '' || price === '' || year === ''){
+        return ui.showMassage('Los campos no estan completos', 'danger')
      }
      ui.addproduct(producto);
      ui.resetForm(); 

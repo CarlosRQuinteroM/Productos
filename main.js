@@ -9,8 +9,19 @@ class Producto {
 
 class UI {
     addproduct(producto){
+        const productList = document.getElementById('Product-list');
+        const element = document.createElement('div');
+        element.innerHTML = `
+        <div class="card text-center mb-4">
+           <div class="card-body">
+              <strong>Producto</strong>:${producto.name} 
+              <strong>Precio del Producto</strong>:${producto.price}
+              <strong>Año del Producto</strong>:${producto.year}
+ 
+           </div>
 
-
+        </div>
+        `
     }
     deleteProduct(){
 

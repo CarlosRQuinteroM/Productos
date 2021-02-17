@@ -5,7 +5,7 @@ class Producto {
         this.year = year;
 
     }
-}
+};
 
 class UI {
     addproduct(producto){
@@ -25,28 +25,39 @@ class UI {
         `;
         productList.appendChild(element);
         
-    }
+    };
 
     resetForm(){
        document.getElementById("productos-form").reset();
-    }
+    };
 
     deleteProduct(element){
         if(element.name === 'borrar'){
-            element.parentElement.parentElement.parentElement.remove()
+            element.parentElement.parentElement.parentElement.remove();
+            this.showMassage('Producto Eliminado ','info');
         }
 
-    }
+    };
 
-    showMassage(){
+    showMassage(message, cssClass) {
+       const div = document.createElement('div');
+       div.className = `alert alert-${cssClass} mt-3`; 
+       div.appendChild(document.createTextNode(message));
+    //    mostrado en el DOM
+         const container = document.querySelector('.container-fluid');
+         const app = document.querySelector('#App');
+         container.insertBefore(div , app);
 
-    }
+         setTimeout(function(){
+           document.querySelector('.alert').remove();
+         }, 3000);
+    };
 }
 
 
 // Eventos del DOM
 document.getElementById('productos-form')
-    .addEventListener('submit', function(e){
+    .addEventListener('submit', function (e) {
      const name = document.getElementById('name').value;
      const price = document.getElementById('price').value;
      const year = document.getElementById('year').value;
@@ -54,8 +65,12 @@ document.getElementById('productos-form')
     const producto = new Producto(name, price , year);
 
      const ui = new UI();
+     if(name === '' || price === '' || yerar === ''){
+         ui.showMassage('Los campos no estan completos')
+     }
      ui.addproduct(producto);
      ui.resetForm(); 
+     ui.showMassage('Producto Agregado', 'success');
     
 
     e.preventDefault();
@@ -65,6 +80,6 @@ document.getElementById('Product-list').addEventListener( 'click' , function(e){
     const ui = new UI();
     ui.deleteProduct(e.target)
 
-} )  
+} ) ; 
 
 
